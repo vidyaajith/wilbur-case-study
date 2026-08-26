@@ -144,6 +144,19 @@
     background:var(--gold-soft);border:1px solid rgba(217,169,76,.2);margin-bottom:24px;
   }
   .icobox.red{background:var(--rust-soft);border-color:rgba(196,100,60,.24)}
+  .icobox.grn{background:var(--green-soft);border-color:rgba(95,208,138,.24)}
+
+  /* ── results at a glance (compact, under hero) ── */
+  .glance{background:var(--ink-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .glance .eyebrow{margin-bottom:0}
+  .ggrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:26px}
+  .g{background:var(--ink-2);padding:clamp(20px,2.4vw,28px);display:flex;flex-direction:column;gap:10px}
+  .g .icobox{margin-bottom:2px}
+  .g .big{font-family:var(--serif);font-size:clamp(28px,3.8vw,44px);line-height:.95;letter-spacing:-.03em;color:var(--gold)}
+  .g .big.grn{color:var(--green)}
+  .g .ttl{font-family:var(--serif);font-size:clamp(17px,1.9vw,20px);font-weight:400;line-height:1.2;letter-spacing:-.015em;color:var(--paper-dim)}
+  .g .sub{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--paper-faint)}
+  @media(max-width:720px){.ggrid{grid-template-columns:1fr}}
 
   /* ── challenge ──────────────────────────── */
   .split{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(32px,4.4vw,68px);align-items:start}
@@ -202,6 +215,8 @@
   .imgslot .k{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
   .imgslot .n{font-family:var(--serif);font-size:clamp(18px,2.2vw,26px);color:var(--paper-dim)}
   .imgslot .s{font-size:12px;color:var(--paper-faint);font-family:ui-monospace,Menlo,monospace}
+  .shot{margin-top:26px;border-radius:6px;overflow:hidden;border:1px solid var(--line)}
+  .shot img{width:100%;height:auto;display:block}
 
   /* ── build section: tighter than the default scale ── */
   #build .h2sub{margin-bottom:26px}
@@ -323,9 +338,7 @@
 <header class="hero">
   <div class="wrap" style="width:100%">
     <div class="hero-tag rv"><span class="dot"></span> Fractional COO · Operations Case Study</div>
-    <div class="client rv">Fractional COO client</div>
     <h1 class="rv">Wilbur</h1>
-    <p class="rv" style="font-family:var(--serif);font-style:italic;color:var(--gold);font-size:clamp(22px,3.4vw,40px);line-height:1.1;letter-spacing:-.01em;margin-bottom:26px">Founder free</p>
     <p class="hero-sub rv">A marketing agency with <b>10+ client accounts</b> and a 5+ person team, where every account, handoff, and status update ran through one person.</p>
 
     <div class="hero-actions rv">
@@ -333,66 +346,47 @@
       <a class="btn btn-ghost" href="#challenge">Read the case study</a>
     </div>
 
-    <div class="stats">
-      <div class="stat up rv">
-        <div class="n"><svg class="uparrow" viewBox="0 0 40 40" fill="none" aria-hidden="true"><circle cx="20" cy="20" r="19" fill="rgba(95,208,138,.12)" stroke="rgba(95,208,138,.35)"/><path d="M20 27V13" stroke="#5FD08A" stroke-width="2.4" stroke-linecap="round"/><path d="M13.5 19.5 20 13l6.5 6.5" stroke="#5FD08A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> <span data-count="70" data-prefix="+" data-suffix="%">+70%</span></div>
-        <div class="l">Faster client onboarding, 10 days to 3</div>
-        <svg class="spark" viewBox="0 0 180 44" fill="none" aria-hidden="true">
-          <path d="M2 38 C 26 36, 44 34, 62 30 S 100 24, 122 16 S 158 6, 178 3" stroke="#5FD08A" stroke-width="2" stroke-linecap="round"/>
-          <path d="M2 38 C 26 36, 44 34, 62 30 S 100 24, 122 16 S 158 6, 178 3 L178 44 L2 44Z" fill="url(#sg)" opacity=".35"/>
-          <defs><linearGradient id="sg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5FD08A" stop-opacity=".7"/><stop offset="1" stop-color="#5FD08A" stop-opacity="0"/></linearGradient></defs>
-          <circle cx="178" cy="3" r="3.2" fill="#5FD08A"/>
-        </svg>
-      </div>
-      <div class="stat rv">
-        <div class="n"><svg class="uparrow" viewBox="0 0 40 40" fill="none" aria-hidden="true"><circle cx="20" cy="20" r="19" fill="rgba(217,169,76,.12)" stroke="rgba(217,169,76,.35)"/><rect x="12" y="12" width="6" height="6" rx="1.5" stroke="#D9A94C" stroke-width="1.6"/><rect x="22" y="12" width="6" height="6" rx="1.5" stroke="#D9A94C" stroke-width="1.6"/><rect x="12" y="22" width="6" height="6" rx="1.5" stroke="#D9A94C" stroke-width="1.6"/><rect x="22" y="22" width="6" height="6" rx="1.5" stroke="#D9A94C" stroke-width="1.6"/></svg> <span>10+</span></div>
-        <div class="l">Client accounts running through one shared system</div>
-        <svg class="spark" viewBox="0 0 180 30" fill="none" aria-hidden="true">
-          <g fill="#D9A94C" opacity=".8">
-            <circle cx="9" cy="9" r="4"/><circle cx="27" cy="9" r="4"/><circle cx="45" cy="9" r="4"/><circle cx="63" cy="9" r="4"/><circle cx="81" cy="9" r="4"/>
-            <circle cx="9" cy="24" r="4"/><circle cx="27" cy="24" r="4"/><circle cx="45" cy="24" r="4"/><circle cx="63" cy="24" r="4"/><circle cx="81" cy="24" r="4"/>
-          </g>
-          <text x="100" y="20" font-family="Inter,sans-serif" font-size="13" fill="rgba(242,238,230,.4)">+</text>
-        </svg>
-      </div>
-      <div class="stat rv">
-        <div class="n"><svg class="uparrow" viewBox="0 0 40 40" fill="none" aria-hidden="true"><circle cx="20" cy="20" r="19" fill="rgba(217,169,76,.12)" stroke="rgba(217,169,76,.35)"/><circle cx="16" cy="17" r="4" stroke="#D9A94C" stroke-width="1.6"/><circle cx="25" cy="18" r="3.2" stroke="#D9A94C" stroke-width="1.6"/><path d="M10 28c.8-4 3.4-6 6-6s5.2 2 6 6" stroke="#D9A94C" stroke-width="1.6" stroke-linecap="round"/><path d="M22 28c.5-2.6 2-4.4 3.8-5.2" stroke="#D9A94C" stroke-width="1.6" stroke-linecap="round"/></svg> <span>5+</span></div>
-        <div class="l">Team members, no longer waiting on the founder for status</div>
-        <svg class="spark" viewBox="0 0 180 30" fill="none" aria-hidden="true">
-          <g fill="#D9A94C" opacity=".8">
-            <circle cx="9" cy="15" r="4.4"/><circle cx="27" cy="15" r="4.4"/><circle cx="45" cy="15" r="4.4"/><circle cx="63" cy="15" r="4.4"/><circle cx="81" cy="15" r="4.4"/>
-          </g>
-        </svg>
-      </div>
-    </div>
   </div>
 </header>
 
-<!-- ═══ 2. THE CHALLENGE ═══════════════════════ -->
-<section id="challenge">
-  <div class="wrap split">
-    <div>
-      <div class="rule rv"></div>
-      <h2 class="rv">The Challenge</h2>
-      <p class="h2sub rv">Not effort. <em>Structure.</em></p>
-      <p class="lede rv">The founder was the coordination layer. Every account, every handoff, and every status update ran through him, so <strong>capacity was capped at his attention</strong> no matter how the team grew.</p>
+<!-- ═══ RESULTS AT A GLANCE ═════════════════════ -->
+<section class="glance">
+  <div class="wrap">
+    <div class="eyebrow rv">Results at a glance</div>
 
-      <div class="imgslot">
-        <svg class="ico" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
-        <span class="k">Image Placeholder</span>
-        <span class="n">The before state: scattered onboarding checklist, DMs, and status threads</span>
-        <span class="s">img-01-before-state.png · 16:9 · 1600×900</span>
+    <div class="ggrid">
+      <div class="g rv">
+        <div class="icobox grn"><svg class="ico grn" viewBox="0 0 24 24"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg></div>
+        <div class="big grn"><span data-count="70" data-prefix="+" data-suffix="%">+70%</span></div>
+        <div class="ttl">Faster client onboarding</div>
+        <div class="sub">10 days down to 3</div>
+      </div>
+      <div class="g rv">
+        <div class="icobox"><svg class="ico" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></div>
+        <div class="big"><span>10+</span></div>
+        <div class="ttl">Client accounts</div>
+        <div class="sub">Running through one shared system</div>
+      </div>
+      <div class="g rv">
+        <div class="icobox"><svg class="ico" viewBox="0 0 24 24"><circle cx="8" cy="8" r="3"/><circle cx="16" cy="8" r="3"/><path d="M2 20c0-4 3-6 6-6s6 2 6 6"/><path d="M14 14c3 0 6 2 6 6"/></svg></div>
+        <div class="big"><span>5+</span></div>
+        <div class="ttl">Team members</div>
+        <div class="sub">No longer waiting on the founder for status</div>
       </div>
     </div>
+  </div>
+</section>
 
-    <div>
-      <p class="rv" style="font-size:clamp(13px,1.5vw,16px);letter-spacing:.17em;text-transform:uppercase;color:var(--paper-faint);margin-bottom:20px;font-weight:500">Underneath it, 4 operational gaps</p>
-      <ul class="gaps">
-        <li class="rv"><svg class="ico red" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg><span><b>Deliverables ran late.</b> Consistently, and clients noticed.</span></li>
-        <li class="rv"><svg class="ico red" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18"/><path d="M8 3v4"/><path d="M16 3v4"/></svg><span><b>Onboarding took 10 days.</b> Delaying first revenue and first impression on every new client.</span></li>
-        <li class="rv"><svg class="ico red" viewBox="0 0 24 24"><path d="M4 5h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H9l-4 4v-4H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z"/></svg><span><b>No central system.</b> Work lived in heads, DMs, and inboxes instead of one place.</span></li>
-        <li class="rv"><svg class="ico red" viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg><span><b>Zero visibility without chasing.</b> The founder had no way to see status without manually asking the team.</span></li>
-      </ul>
+<!-- ═══ 2. THE CHALLENGE ═══════════════════════ -->
+<section id="challenge">
+  <div class="wrap">
+    <div class="rule rv"></div>
+    <h2 class="rv">The Challenge</h2>
+    <p class="h2sub rv">Not effort. <em>Structure.</em></p>
+    <p class="lede rv">The founder was the coordination layer. Every account, every handoff, and every status update ran through him, so <strong>capacity was capped at his attention</strong> no matter how the team grew.</p>
+
+    <div class="shot">
+      <img src="img-01-before-state.png" alt="The before state: a client tracker spreadsheet with unclear owners and overdue statuses, next to a Slack thread of unanswered status-chase messages">
     </div>
   </div>
 </section>
@@ -431,6 +425,22 @@
       <span class="tag">The Bottleneck</span>
       <p>The founder was the coordination layer, so agency capacity was capped at his attention.</p>
     </div>
+  </div>
+</section>
+
+<!-- ═══ AUDIT ═══════════════════════════════════ -->
+<section id="audit">
+  <div class="wrap">
+    <div class="rule rv"></div>
+    <h2 class="rv">Audit</h2>
+    <p class="h2sub rv">Underneath it, <em>4 operational gaps.</em></p>
+
+    <ul class="gaps">
+      <li class="rv"><svg class="ico red" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg><span><b>Deliverables ran late.</b> Consistently, and clients noticed.</span></li>
+      <li class="rv"><svg class="ico red" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18"/><path d="M8 3v4"/><path d="M16 3v4"/></svg><span><b>Onboarding took 10 days.</b> Delaying first revenue and first impression on every new client.</span></li>
+      <li class="rv"><svg class="ico red" viewBox="0 0 24 24"><path d="M4 5h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H9l-4 4v-4H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z"/></svg><span><b>No central system.</b> Work lived in heads, DMs, and inboxes instead of one place.</span></li>
+      <li class="rv"><svg class="ico red" viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg><span><b>Zero visibility without chasing.</b> The founder had no way to see status without manually asking the team.</span></li>
+    </ul>
   </div>
 </section>
 
@@ -493,11 +503,8 @@
           <li><svg class="ico" viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="5" rx="1.5"/><rect x="13" y="10" width="8" height="11" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/></svg><span><b>Per-function views</b> Each team member sees only their lane, not the whole account.</span></li>
         </ul>
 
-        <div class="imgslot">
-          <svg class="ico" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
-          <span class="k">Image Placeholder</span>
-          <span class="n">ClickUp folder hierarchy and per-function views</span>
-          <span class="s">img-02-clickup-hierarchy.png · 16:9 · 1600×900</span>
+        <div class="shot">
+          <img src="img-02-clickup-hierarchy.png" alt="ClickUp workspace showing client accounts organized into a folder hierarchy with per-function task views">
         </div>
       </div>
     </div>
@@ -511,32 +518,47 @@
         <p class="d">Standardized the client onboarding workflow end to end, from first contract to first deliverable, so a new client's first ten days stopped being improvised. The same steps, in the same order, every time.</p>
 
         <div class="figure" style="margin-top:14px">
-          <svg class="ill" viewBox="0 0 720 170" fill="none" aria-label="Onboarding moved from a manual chase with waiting to one continuous flow">
-            <text x="20" y="26" font-family="Inter,sans-serif" font-size="9" letter-spacing="1.8" fill="rgba(196,100,60,.85)">BEFORE</text>
+          <svg class="ill" viewBox="0 0 720 195" fill="none" aria-label="Onboarding moved from four disconnected steps with waiting in between to one connected flow">
+            <text x="20" y="20" font-family="Inter,sans-serif" font-size="9" letter-spacing="1.8" fill="rgba(196,100,60,.85)">BEFORE</text>
+            <text x="678" y="20" text-anchor="end" font-family="Inter,sans-serif" font-size="9" letter-spacing="1.4" fill="rgba(196,100,60,.85)">10 DAYS</text>
             <g class="fadein">
-              <rect x="20" y="38" width="130" height="30" rx="5" fill="rgba(196,100,60,.14)" stroke="rgba(196,100,60,.3)"/>
-              <rect x="196" y="38" width="130" height="30" rx="5" fill="rgba(196,100,60,.14)" stroke="rgba(196,100,60,.3)"/>
-              <rect x="372" y="38" width="130" height="30" rx="5" fill="rgba(196,100,60,.14)" stroke="rgba(196,100,60,.3)"/>
-              <rect x="548" y="38" width="130" height="30" rx="5" fill="rgba(196,100,60,.14)" stroke="rgba(196,100,60,.3)"/>
+              <rect x="20" y="30" width="130" height="32" rx="6" fill="rgba(196,100,60,.14)" stroke="rgba(196,100,60,.35)"/>
+              <rect x="196" y="30" width="130" height="32" rx="6" fill="rgba(196,100,60,.14)" stroke="rgba(196,100,60,.35)"/>
+              <rect x="372" y="30" width="130" height="32" rx="6" fill="rgba(196,100,60,.14)" stroke="rgba(196,100,60,.35)"/>
+              <rect x="548" y="30" width="130" height="32" rx="6" fill="rgba(196,100,60,.14)" stroke="rgba(196,100,60,.35)"/>
+              <text x="85" y="50" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="rgba(242,238,230,.8)">Contract</text>
+              <text x="261" y="50" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="rgba(242,238,230,.8)">Kickoff call</text>
+              <text x="437" y="50" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="rgba(242,238,230,.8)">Assets in</text>
+              <text x="613" y="50" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="rgba(242,238,230,.8)">Deliverable</text>
               <g stroke="rgba(196,100,60,.5)" stroke-width="1.2" stroke-dasharray="3 4">
-                <path d="M150 53h46"/><path d="M326 53h46"/><path d="M502 53h46"/>
+                <path d="M150 46h46"/><path d="M326 46h46"/><path d="M502 46h46"/>
               </g>
-              <text x="158" y="30" font-family="Inter,sans-serif" font-size="8" fill="rgba(196,100,60,.9)">wait</text>
-              <text x="334" y="30" font-family="Inter,sans-serif" font-size="8" fill="rgba(196,100,60,.9)">wait</text>
-              <text x="510" y="30" font-family="Inter,sans-serif" font-size="8" fill="rgba(196,100,60,.9)">wait</text>
+              <text x="173" y="72" text-anchor="middle" font-family="Inter,sans-serif" font-size="8" fill="rgba(196,100,60,.9)">3d wait</text>
+              <text x="349" y="72" text-anchor="middle" font-family="Inter,sans-serif" font-size="8" fill="rgba(196,100,60,.9)">4d wait</text>
+              <text x="525" y="72" text-anchor="middle" font-family="Inter,sans-serif" font-size="8" fill="rgba(196,100,60,.9)">2d wait</text>
             </g>
-            <text x="20" y="112" font-family="Inter,sans-serif" font-size="9" letter-spacing="1.8" fill="#5FD08A">AFTER</text>
+
+            <text x="20" y="118" font-family="Inter,sans-serif" font-size="9" letter-spacing="1.8" fill="#5FD08A">AFTER</text>
+            <text x="678" y="118" text-anchor="end" font-family="Inter,sans-serif" font-size="9" letter-spacing="1.4" fill="#5FD08A">3 DAYS</text>
             <g class="fadein" style="transition-delay:.35s">
-              <rect x="20" y="124" width="658" height="30" rx="15" fill="rgba(95,208,138,.12)" stroke="rgba(95,208,138,.4)"/>
-              <g stroke="#5FD08A" stroke-width="1.4" fill="none" stroke-linecap="round">
-                <path d="M186 139h56"/><path d="M232 133l7 6-7 6"/>
-                <path d="M406 139h56"/><path d="M452 133l7 6-7 6"/>
+              <rect x="20" y="130" width="658" height="30" rx="15" fill="rgba(95,208,138,.12)" stroke="rgba(95,208,138,.4)"/>
+              <path d="M90 145H610" stroke="#5FD08A" stroke-width="1.4"/>
+              <g stroke="#5FD08A" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M172 139l8 6-8 6"/>
+                <path d="M346 139l8 6-8 6"/>
+                <path d="M519 139l8 6-8 6"/>
               </g>
-              <circle cx="96" cy="139" r="7" fill="rgba(95,208,138,.3)"/>
-              <circle cx="596" cy="139" r="7" fill="rgba(95,208,138,.3)"/>
+              <circle cx="90" cy="145" r="5.5" fill="rgba(95,208,138,.4)" stroke="#5FD08A" stroke-width="1.2"/>
+              <circle cx="263" cy="145" r="5.5" fill="rgba(95,208,138,.4)" stroke="#5FD08A" stroke-width="1.2"/>
+              <circle cx="437" cy="145" r="5.5" fill="rgba(95,208,138,.4)" stroke="#5FD08A" stroke-width="1.2"/>
+              <circle cx="610" cy="145" r="5.5" fill="rgba(95,208,138,.4)" stroke="#5FD08A" stroke-width="1.2"/>
+              <text x="90" y="178" text-anchor="middle" font-family="Inter,sans-serif" font-size="8" fill="rgba(242,238,230,.55)">Contract</text>
+              <text x="263" y="178" text-anchor="middle" font-family="Inter,sans-serif" font-size="8" fill="rgba(242,238,230,.55)">Kickoff call</text>
+              <text x="437" y="178" text-anchor="middle" font-family="Inter,sans-serif" font-size="8" fill="rgba(242,238,230,.55)">Assets in</text>
+              <text x="610" y="178" text-anchor="middle" font-family="Inter,sans-serif" font-size="8" fill="rgba(242,238,230,.55)">Deliverable</text>
             </g>
           </svg>
-          <div class="cap">Onboarding stopped waiting on the founder to remember the next step</div>
+          <div class="cap">Same four steps, now connected instead of waiting on the founder</div>
         </div>
 
         <div class="metric-inline">
